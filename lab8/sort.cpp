@@ -247,9 +247,15 @@ void print_array(const int* array, const size_t size)
 
 int main()
 {
-    const size_t size_min = 1, size_max = 20000;
-    const double size_multiplier_step = 2;
-    clear_file("result_bubble.txt");
+    /*const size_t size_min = 1, size_max = 20000;
+    const double size_multiplier_step = 2;*/
+    const size_t size = 1000;
+    const int repeat = 10000;
+    int* array = create_random_array(size);
+    const int time = get_time(make_bubble_sort, array, repeat, size);
+    std::cout << "Time: " << time << '\n';
+    delete[] array;
+    /*clear_file("result_bubble.txt");
     std::cout << "---Bubble sort start---" << '\n';
     make_test(create_sorted_array, make_bubble_sort, size_min, size_max, size_multiplier_step, "result_bubble.txt");
     std::cout << "---Bubble sort finish---" << '\n';
@@ -264,6 +270,6 @@ int main()
     clear_file("result_quicksort.txt");
     std::cout << "---Quick sort start---" << '\n';
     make_test(create_sorted_array, make_quicksort, size_min, size_max, size_multiplier_step, "result_quicksort.txt");
-    std::cout << "---Quick sort finish---" << '\n';
+    std::cout << "---Quick sort finish---" << '\n';*/
     return 0;
 }
